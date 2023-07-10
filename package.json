@@ -1,8 +1,8 @@
 {
   "name": "nuxt-disqus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Disqus for Nuxt 3",
-  "repository": "your-org/nuxt-disqus",
+  "repository": "modbender/nuxt-disqus",
   "license": "MIT",
   "type": "module",
   "exports": {

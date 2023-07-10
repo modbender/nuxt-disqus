@@ -1,6 +1,6 @@
 {
   "name": "nuxt-disqus",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Disqus for Nuxt 3",
   "repository": "modbender/nuxt-disqus",
   "license": "MIT",

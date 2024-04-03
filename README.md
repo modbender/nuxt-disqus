@@ -23,13 +23,6 @@ Nuxt Disqus provides a wrapper for [vue3-disqus](https://github.com/modbender/vu
 1. Add `nuxt-disqus` dependency to your project
 
    ```bash
-   # Using pnpm
-   npx nuxi@latest module add disqus
-
-   # Using yarn
-   npx nuxi@latest module add disqus
-
-   # Using npm
    npx nuxi@latest module add disqus
    ```
 

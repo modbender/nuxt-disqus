@@ -40,9 +40,9 @@ jobs:
         run: pnpm prepack
 
       - name: Publish to npm
-        run: pnpm publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        uses: simenandre/publish-with-pnpm@v2
+        with:
+          npm-auth-token: ${{ secrets.NPM_TOKEN }}
 
       - name: Run github release
         run: npx --yes changelogithub@latest

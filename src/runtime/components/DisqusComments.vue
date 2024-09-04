@@ -3,9 +3,8 @@
 </template>
 
 <script setup>
-import { useNuxtApp } from "#imports";
-
-import { DisqusComments as VueDisqusComments } from "vue3-disqus";
+import { DisqusComments as VueDisqusComments } from 'vue3-disqus'
+import { useNuxtApp } from '#imports'
 
 const props = defineProps({
   ...VueDisqusComments.props,
@@ -13,5 +12,5 @@ const props = defineProps({
     type: String,
     default: () => useNuxtApp()?.$disqusOptions?.shortname,
   },
-});
+})
 </script>

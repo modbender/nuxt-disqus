@@ -27,10 +27,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-  lint:
-    needs: common
-    runs-on: ubuntu-latest
-    steps:
       - name: Run linters
         uses: wearerequired/lint-action@v2
         with:
@@ -38,25 +34,18 @@ jobs:
           eslint: true
           prettier: true
 
-  test:
-    needs: lint
-    runs-on: ubuntu-latest
-    steps:
-      - run: pnpm test
+      - name: Run tests
+        run: pnpm test
 
-  publish:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - run: pnpm prepack
-      - run: pnpm publish
+      - name: Run prepack
+        run: pnpm prepack
+
+      - name: Publish to npmjs
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-  release:
-    needs: publish
-    runs-on: ubuntu-latest
-    steps:
-      - run: npx --yes changelogithub@latest
+      - name: Run github release
+        run: npx --yes changelogithub@latest
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

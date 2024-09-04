@@ -12,7 +12,7 @@ import { name, version } from '../package.json'
 
 import type { ModuleOptions } from './types'
 
-export default defineNuxtModule({
+export default defineNuxtModule<ModuleOptions>({
   meta: {
     name,
     version,

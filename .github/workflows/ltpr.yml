@@ -1,0 +1,62 @@
+name: Lint, Test, Publish and Release
+
+permissions:
+  checks: write
+  contents: write
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  common:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: "package.json"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+  lint:
+    needs: common
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          auto_fix: true
+          eslint: true
+          prettier: true
+
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - run: pnpm test
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - run: pnpm prepack
+      - run: pnpm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  release:
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - run: npx --yes changelogithub@latest
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

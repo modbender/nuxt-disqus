@@ -1,6 +1,6 @@
 {
   "name": "nuxt-disqus",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "Disqus for Nuxt 3",
   "repository": "modbender/nuxt-disqus",
   "license": "MIT",
@@ -37,7 +37,7 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "pnpm run lint && pnpm run test && pnpm run prepack && changelogen --release && pnpm publish && git push --follow-tags",
+    "release": "pnpm lint && pnpm test && pnpm prepack && changelogen --release && pnpm publish && git push --follow-tags",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest run",

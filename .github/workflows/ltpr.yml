@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: "package.json"
+          node-version: "lts"
           cache: "pnpm"
 
       - name: Install dependencies
@@ -30,10 +30,8 @@ jobs:
       - name: Run linters
         uses: wearerequired/lint-action@v2
         with:
-          auto_fix: true
           eslint: true
           prettier: true
-          commit_message: "chore: lint fix ${linter}"
 
       - name: Run tests
         run: pnpm test
@@ -41,7 +39,7 @@ jobs:
       - name: Run prepack
         run: pnpm prepack
 
-      - name: Publish to npmjs
+      - name: Publish to npm
         run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

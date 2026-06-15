@@ -1,17 +1,15 @@
-# Disqus for Nuxt 3
+# Disqus for Nuxt 3 and Nuxt 4
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-Instantly add Disqus Comments to your posts or pages using this package designed to work perfectly with Nuxt 3.
+Instantly add Disqus Comments to your posts or pages using this package designed to work perfectly with Nuxt 3 and Nuxt 4.
 
-Nuxt Disqus provides a wrapper for [vue3-disqus](https://github.com/modbender/vue3-disqus) to be used with Nuxt 3
+Nuxt Disqus provides a wrapper for [vue3-disqus](https://github.com/modbender/vue3-disqus) to be used with Nuxt 3 and Nuxt 4.
 
-<!-- - [✨ &nbsp;Release Notes](/CHANGELOG.md) -->
-  <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/nuxt-disqus?file=playground%2Fapp.vue) -->
-  <!-- - [📖 &nbsp;Documentation](https://example.com) -->
+- 📖 &nbsp;[Documentation](https://modbender.in/nuxt-disqus/)
 
 ## Features
 
@@ -23,7 +21,7 @@ Nuxt Disqus provides a wrapper for [vue3-disqus](https://github.com/modbender/vu
 1. Add `nuxt-disqus` dependency to your project
 
    ```bash
-   npx nuxi@latest module add disqus
+   npx nuxi@latest module add nuxt-disqus
    ```
 
 2. Add `nuxt-disqus` to the `modules` section of `nuxt.config.ts`
@@ -60,26 +58,26 @@ That's it! You can now use Disqus in your Nuxt app ✨
 
 ```bash
 # Install dependencies
-yarn install
+pnpm install
 
 # Generate type stubs
-yarn run dev:prepare
+pnpm dev:prepare
 
 # Develop with the playground
-yarn run dev
+pnpm dev
 
 # Build the playground
-yarn run dev:build
+pnpm dev:build
 
 # Run ESLint
-yarn run lint
+pnpm lint
 
 # Run Vitest
-yarn run test
-yarn run test:watch
+pnpm test
+pnpm test:watch
 
 # Release new version
-yarn run release
+pnpm release
 ```
 
 <!-- Badges -->

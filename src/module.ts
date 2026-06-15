@@ -18,7 +18,7 @@ export default defineNuxtModule<ModuleOptions>({
     version,
     configKey: 'disqus',
     compatibility: {
-      nuxt: '>=3.0.0',
+      nuxt: '^3.0.0 || ^4.0.0',
     },
   },
   // Default configuration options of the Nuxt module
@@ -41,7 +41,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.hook('modules:done', () => {
       if (isNuxt2(nuxt)) {
-        throw new Error('Vue3 Snackbar is not compatible with Nuxt2')
+        throw new Error('Nuxt Disqus is not compatible with Nuxt2')
       }
       else {
         addPlugin(resolve('./runtime/plugin'))
